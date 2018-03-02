@@ -1,11 +1,11 @@
-package com.werockstar.modernandroiddevelopment.view
+package com.werockstar.modernandroiddevelopment.user
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.werockstar.modernandroiddevelopment.ModernApp
 import com.werockstar.modernandroiddevelopment.R
 
-class MainActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
