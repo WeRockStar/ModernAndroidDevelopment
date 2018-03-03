@@ -17,11 +17,11 @@ class UserActivity : AppCompatActivity(), UserPresenter.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         (application as ModernApp).component.inject(this)
+
         presenter.attachView(this)
 
-        // Move dependency outside Android world
+
         btnSearch.setOnClickListener({
             val userId = editTextUserId.text.toString().toInt()
             presenter.getUserById(userId)
