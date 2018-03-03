@@ -7,8 +7,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(HttpModule::class,
-        RxThreadModule::class))
+@Component(modules = arrayOf(HttpModule::class, RxThreadModule::class))
 interface AppComponent {
 
     fun inject(activity: UserActivity)
