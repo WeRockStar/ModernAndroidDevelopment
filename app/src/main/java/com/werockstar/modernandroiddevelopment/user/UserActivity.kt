@@ -21,7 +21,6 @@ class UserActivity : AppCompatActivity(), UserPresenter.View {
 
         presenter.attachView(this)
 
-
         btnSearch.setOnClickListener({
             val userId = editTextUserId.text.toString().toInt()
             presenter.getUserById(userId)
@@ -34,6 +33,7 @@ class UserActivity : AppCompatActivity(), UserPresenter.View {
 
     override fun onDismissShowProgressBar() {
         progressBar.visibility = View.GONE
+        ivUser.visibility = View.VISIBLE
     }
 
     override fun onUserResult(user: UserResponse) {
