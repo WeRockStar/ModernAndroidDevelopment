@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.werockstar.modernandroiddevelopment.ModernApp
 import com.werockstar.modernandroiddevelopment.R
 import com.werockstar.modernandroiddevelopment.model.UserResponse
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_user.*
 import javax.inject.Inject
 
 class UserActivity : AppCompatActivity(), UserPresenter.View {
@@ -16,7 +16,7 @@ class UserActivity : AppCompatActivity(), UserPresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_user)
         (application as ModernApp).component.inject(this)
 
         presenter.attachView(this)
