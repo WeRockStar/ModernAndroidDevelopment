@@ -32,6 +32,7 @@ class UserPresenter @Inject constructor(val api: SimpleApi, val threadService: R
                 .subscribe({
                     view.onUserResult(it)
                 }, {
+                    view.onUserNotFound()
                 })
     }
 

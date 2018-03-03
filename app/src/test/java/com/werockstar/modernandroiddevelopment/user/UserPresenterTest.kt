@@ -41,4 +41,15 @@ class UserPresenterTest {
         Mockito.verify(view).onUserResult(UserResponse(userId, userResponse.name, urlResponse.url))
         Mockito.verify(view).onDismissShowProgressBar()
     }
+
+    @Test
+    fun get_user_by_id_55_should_see_error_User_Not_Found() {
+        Mockito.`when`(api.getUserById(1)).thenReturn(Observable.error(Throwable()))
+
+        presenter.getUserById(1)
+
+        Mockito.verify(view).onShowProgressBar()
+        Mockito.verify(view).onUserNotFound()
+        Mockito.verify(view).onDismissShowProgressBar()
+    }
 }
