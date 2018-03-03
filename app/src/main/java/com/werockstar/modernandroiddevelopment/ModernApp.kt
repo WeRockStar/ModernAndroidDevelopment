@@ -4,17 +4,17 @@ import android.app.Application
 import com.werockstar.modernandroiddevelopment.di.component.AppComponent
 import com.werockstar.modernandroiddevelopment.di.component.DaggerAppComponent
 
-class ModernApp : Application() {
+open class ModernApp : Application() {
 
-    private lateinit var component: AppComponent
+    lateinit var component: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        component = DaggerAppComponent.builder().build()
+        component = createComponent()
     }
 
-    fun getComponent(): AppComponent {
-        return component
+    open fun createComponent(): AppComponent {
+        return DaggerAppComponent.builder().build()
     }
 }

@@ -11,6 +11,6 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        (application as ModernApp).getComponent().inject(this)
+        (application as ModernApp).component.inject(this)
     }
 }
