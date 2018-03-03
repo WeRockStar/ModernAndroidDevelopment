@@ -2,6 +2,7 @@ package com.werockstar.modernandroiddevelopment.user
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.werockstar.modernandroiddevelopment.ModernApp
@@ -21,12 +22,12 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        (application as ModernApp).getComponent().inject(this)
+        (application as ModernApp).component.inject(this)
 
         btnSearch.setOnClickListener({
             val userId = editTextUserId.text.toString().toInt()
-
             progressBar.visibility = View.VISIBLE
+
             api.getUserById(userId)
                     .flatMap({ user ->
                         api.getUserImageUrlById(userId)
@@ -38,6 +39,7 @@ class UserActivity : AppCompatActivity() {
                         tvName.text = it.name
                         Glide.with(this).load(it.url).into(ivUser)
                     }, {
+                        Log.e("User", it.message)
                         tvName.text = "User not found"
                         Glide.with(this).load(R.mipmap.ic_launcher).into(ivUser)
                     })

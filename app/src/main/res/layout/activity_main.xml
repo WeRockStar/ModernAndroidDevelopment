@@ -32,6 +32,7 @@
         android:layout_width="220dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
+        android:visibility="invisible"
         app:layout_constraintDimensionRatio="h,4:3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,13 +44,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="WeRockStar"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivUser" />
+        app:layout_constraintTop_toBottomOf="@+id/ivUser"
+        tools:text="WeRockStar" />
 
     <ProgressBar
         android:id="@+id/progressBar"

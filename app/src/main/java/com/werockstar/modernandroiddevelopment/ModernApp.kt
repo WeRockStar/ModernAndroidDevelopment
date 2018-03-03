@@ -6,20 +6,20 @@ import com.werockstar.modernandroiddevelopment.di.component.DaggerAppComponent
 import com.werockstar.modernandroiddevelopment.di.module.HttpModule
 import com.werockstar.modernandroiddevelopment.di.module.RxThreadModule
 
-class ModernApp : Application() {
+open class ModernApp : Application() {
 
-    private lateinit var component: AppComponent
+    lateinit var component: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        component = DaggerAppComponent.builder()
+        component = createComponent()
+    }
+
+    open fun createComponent(): AppComponent {
+        return DaggerAppComponent.builder()
                 .httpModule(HttpModule())
                 .rxThreadModule(RxThreadModule())
                 .build()
-    }
-
-    fun getComponent(): AppComponent {
-        return component
     }
 }
